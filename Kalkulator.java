@@ -38,7 +38,9 @@ public class Kalkulator{
                         break; 
                     } 
                     case 2 -> {
-                        System.out.print("Banyak angka yang akan dikurangkan: ");
+                        System.out.print("Tuliskan angka yang akan dikurang: ");
+                        int angka = input.nextInt();
+                        System.out.print("Banyak angka yang akan menjadi pengurang: ");
                         int n = input.nextInt();
                         int[] angkaArray = new int[n];
 
@@ -47,30 +49,39 @@ public class Kalkulator{
                             angkaArray[i] = input.nextInt();
                         }
                         System.out.println("=".repeat(50));
+                        System.out.printf("%48d\n", angka);
                         for (int i = 0; i < n; i++){
                             System.out.printf("%48d\n", angkaArray[i]);
                         }
 
-                        int total = pengurangan(angkaArray);
+                        int total = pengurangan(angka, angkaArray);
 
-                        System.out.println("-".repeat(48) + " +");
+                        System.out.println("-".repeat(48) + " -");
                         System.out.printf("%48d \n", total);
                         System.out.println("=".repeat(50));
                         break; 
                     } 
                     case 3 -> {
-                        System.out.printf("%s", "Masukkan angka pertama: ");
-                        int angka1 = input.nextInt();
-                        System.out.printf("%s", "Masukkan angka kedua: ");
-                        int angka2 = input.nextInt();
+                        System.out.print("Tuliskan angka yang akan dikali: ");
+                        int angka = input.nextInt();
+                        System.out.print("Banyak angka yang akan menjadi pengali: ");
+                        int n = input.nextInt();
+                        int[] angkaArray = new int[n];
 
+                        for (int i = 0; i < n; i++){
+                            System.out.printf("%s", "Masukkan angka ke-" + (i+1) + ": ");
+                            angkaArray[i] = input.nextInt();
+                        }
                         System.out.println("=".repeat(50));
-                        System.out.printf("%48d\n", angka1);
-                        System.out.printf("%48d\n", angka2);
+                        System.out.printf("%48d\n", angka);
+                        for (int i = 0; i < n; i++){
+                            System.out.printf("%48d\n", angkaArray[i]);
+                        }
+
+                        int total = perkalian(angka, angkaArray);
 
                         System.out.println("-".repeat(48) + " x");
-                        int hasil = perkalian(angka1, angka2);
-                        System.out.printf("%48d\n", hasil);
+                        System.out.printf("%48d \n", total);
                         System.out.println("=".repeat(50));
                         break; 
                     } 
@@ -158,16 +169,20 @@ public class Kalkulator{
         return total;
     }
 
-    public static int pengurangan(int[] angkaArray){
-        int total = angkaArray[0];
-        for (int angka : angkaArray) {
-            total -= angka; 
+    public static int pengurangan(int angka, int[] angkaArray){
+        int total = angka;
+        for (int kurang : angkaArray) {
+            total -= kurang; 
         }
         return total;
     }
 
-    public static int perkalian(int angka1, int angka2){
-        return angka1 * angka2;
+    public static int perkalian(int angka, int[] angkaArray){
+        int total = angka;
+        for (int kali : angkaArray) {
+            total *= kali; 
+        }
+        return total;
     }
 
     public static int pembagian(int angka1, int angka2){

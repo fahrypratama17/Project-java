@@ -87,25 +87,25 @@ public class Kalkulator{
                     } 
                     case 4 -> {
                         System.out.print("Tuliskan angka yang akan dibagi: ");
-                        int angka = input.nextInt();
+                        double angka = input.nextDouble();
                         System.out.print("Banyak angka yang akan menjadi pembagi: ");
                         int n = input.nextInt();
-                        int[] angkaArray = new int[n];
+                        double[] angkaArray = new double[n];
 
                         for (int i = 0; i < n; i++){
                             System.out.printf("%s", "Masukkan angka ke-" + (i+1) + ": ");
-                            angkaArray[i] = input.nextInt();
+                            angkaArray[i] = input.nextDouble();
                         }
                         System.out.println("=".repeat(50));
-                        System.out.printf("%48d\n", angka);
+                        System.out.printf("%48f\n", angka);
                         for (int i = 0; i < n; i++){
-                            System.out.printf("%48d\n", angkaArray[i]);
+                            System.out.printf("%48f\n", angkaArray[i]);
                         }
 
-                        int total = pembagian(angka, angkaArray);
+                        double total = pembagian(angka, angkaArray);
 
                         System.out.println("-".repeat(48) + " ÷");
-                        System.out.printf("%48d \n", total);
+                        System.out.printf("%48f \n", total);
                         System.out.println("=".repeat(50));
                         break; 
                     } 
@@ -193,9 +193,9 @@ public class Kalkulator{
         return total;
     }
 
-    public static int pembagian(int angka, int[] angkaArray){
-        int total = angka;
-        for (int bagi : angkaArray) {
+    public static double pembagian(double angka, double[] angkaArray){
+        double total = angka;
+        for (double bagi : angkaArray) {
             total /= bagi; 
         }
         return total;

@@ -38,7 +38,7 @@ public class Kalkulator{
                         break; 
                     } 
                     case 2 -> {
-                        System.out.print("Banyak angka yang akan dijumlahkan: ");
+                        System.out.print("Banyak angka yang akan dikurangkan: ");
                         int n = input.nextInt();
                         int[] angkaArray = new int[n];
 
@@ -51,7 +51,7 @@ public class Kalkulator{
                             System.out.printf("%48d\n", angkaArray[i]);
                         }
 
-                        int total = penjumlahan(angkaArray);
+                        int total = pengurangan(angkaArray);
 
                         System.out.println("-".repeat(48) + " +");
                         System.out.printf("%48d \n", total);
@@ -158,8 +158,12 @@ public class Kalkulator{
         return total;
     }
 
-    public static int pengurangan(int angka1, int angka2){
-        return angka1 - angka2;
+    public static int pengurangan(int[] angkaArray){
+        int total = angkaArray[0];
+        for (int angka : angkaArray) {
+            total -= angka; 
+        }
+        return total;
     }
 
     public static int perkalian(int angka1, int angka2){
